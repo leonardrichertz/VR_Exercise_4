@@ -1,0 +1,2 @@
+C:\Users\leori\Desktop\Master\Unity\Uebung4\VR_Exercise_4\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\CMakeLists.txt
+C:\Users\leori\Desktop\Master\Unity\Uebung4\VR_Exercise_4\Library\Bee\Android\Prj\IL2CPP\Gradle\unityLibrary\src\main\cpp\GameActivity\CMakeLists.txt
