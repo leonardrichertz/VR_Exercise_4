@@ -1,4 +1,5 @@
 using UnityEngine;
+using System.Collections;
 
 public class SkiLocomotion : MonoBehaviour
 {
@@ -19,10 +20,14 @@ public class SkiLocomotion : MonoBehaviour
     private Vector3 leftHandNeutralLocalPos;
     private Vector3 rightHandNeutralLocalPos;
 
+    bool moving = false;
+    float initialY;
+
     void Start()
     {
         if (leftHand != null) leftHandNeutralLocalPos = xrRig.InverseTransformPoint(leftHand.position);
         if (rightHand != null) rightHandNeutralLocalPos = xrRig.InverseTransformPoint(rightHand.position);
+        initialY = xrRig.position.y;
     }
 
     void Update()
@@ -32,8 +37,18 @@ public class SkiLocomotion : MonoBehaviour
 
         float forwardTilt = Vector3.Angle(Vector3.up, headTransform.forward);
 
-        if (forwardTilt > tiltThreshold)
+        #if UNITY_EDITOR
+            bool editorMoveOverride = Input.GetKey(KeyCode.W);
+            bool editor = true;
+        #else
+            bool editorMoveOverride = false;
+            bool editor = false;
+        #endif
+
+        if ((forwardTilt > tiltThreshold && !editor) || editorMoveOverride)
         {
+            moving = true;
+
             // Calculate speed boost based on pushing back controllers
             float speedBoost = 0f;
 
@@ -67,6 +82,23 @@ public class SkiLocomotion : MonoBehaviour
             // Apply steering rotation
             float turnAmount = Mathf.Clamp(roll * leanSensitivity, -maxTurnSpeed, maxTurnSpeed);
             xrRig.Rotate(Vector3.up, -turnAmount * Time.deltaTime);
+        }
+
+        else
+        {
+            if (moving) // Only update initialY *when movement just stopped*
+            {
+                initialY = xrRig.position.y;
+            }
+            moving = false;
+        }
+
+        if (!moving)
+        {
+            // Prevent flying by fixing Y position before movement begins
+            Vector3 pos = xrRig.position;
+            pos.y = initialY;
+            xrRig.position = pos;
         }
     }
 }
