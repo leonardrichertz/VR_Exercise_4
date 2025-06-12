@@ -3,66 +3,55 @@ using System.Collections;
 
 public class SkiLocomotion : MonoBehaviour
 {
-    public Transform headTransform;   // Camera (e.g., Camera.main.transform)
+    public Transform headTransform;
     public Transform xrRig;           // Root object of the player
     public Transform leftHand;        // Left controller transform
     public Transform rightHand;       // Right controller transform
 
-    public float maxTurnSpeed = 50f;           // Max turning speed (deg/sec)
-    public float tiltThreshold = 10f;          // Min forward tilt to start moving
-    public float leanSensitivity = 1.0f;       // Steering sensitivity
-
     public float pushBackThreshold = 0.1f;     // Minimum backward movement on controller local Z to count as push
     public float speedBoostMultiplier = 3f;    // How much the speed increases when pushing
+    public float frictionFactor = 0.99f; // Reduce speed by 1% per frame
 
     private Vector3 leftHandNeutralLocalPos;
     private Vector3 rightHandNeutralLocalPos;
-    private Vector3 lastPosition;
 
-    float initialY;
+    private float currentSpeed = 0f;
 
     void Start()
     {
         if (leftHand != null) leftHandNeutralLocalPos = xrRig.InverseTransformPoint(leftHand.position);
         if (rightHand != null) rightHandNeutralLocalPos = xrRig.InverseTransformPoint(rightHand.position);
-        lastPosition = xrRig.position;
-        initialY = xrRig.position.y; // Store initial Y position for flat movement
     }
 
     void Update()
     {
-
         float deltaTime = Time.deltaTime;
         if (deltaTime <= 0f) return;
 
-        Vector3 currentPosition = xrRig.position;
-        Vector3 movementVector = (currentPosition - lastPosition) / deltaTime;
-        float currentSpeed = new Vector3(movementVector.x, movementVector.y, movementVector.z).magnitude; // flat speed
+        currentSpeed *= frictionFactor;
+
         float speedBoost = CalculatePolePushBoost();
+
+
+        if (speedBoost > 0f)
+        {
+            currentSpeed += speedBoost;
+
+        }
 
         Vector3 headForward = headTransform.forward;
         Vector3 flatForward = new Vector3(headForward.x, 0f, headForward.z).normalized;
 
-        float forwardTilt = Vector3.Angle(Vector3.up, headTransform.forward);
+        Vector3 move = flatForward * currentSpeed * deltaTime;
+        Vector3 newFlatPosition = xrRig.position + new Vector3(move.x, 0f, move.z);
 
-        // Only apply movement if tilted forward enough
-        if (forwardTilt > tiltThreshold)
+        Vector3 rayOrigin = new Vector3(newFlatPosition.x, xrRig.position.y + 5f, newFlatPosition.z);
+        RaycastHit hit;
+        if (Physics.Raycast(rayOrigin, Vector3.down, out hit, 20f, LayerMask.GetMask("Berg")))
         {
-            currentSpeed += speedBoost;
-            Vector3 move = flatForward * currentSpeed * deltaTime;
-            xrRig.position += new Vector3(move.x, 0f, move.z);
-            //ApplyHeadTiltSteering();
+            newFlatPosition.y = hit.point.y;
         }
-        else
-        {
-            // Only apply push movement without base speed if not tilting
-            if (speedBoost > 0f)
-            {
-                Vector3 move = flatForward * speedBoost * deltaTime;
-                xrRig.position += new Vector3(move.x, 0f, move.z);
-            }
-        }
-        lastPosition = xrRig.position;
+        xrRig.position = newFlatPosition;
     }
 
     private float CalculatePolePushBoost()
@@ -87,14 +76,4 @@ public class SkiLocomotion : MonoBehaviour
 
         return Mathf.Clamp(boost, 0f, 1f) * speedBoostMultiplier;
     }
-
-    private void ApplyHeadTiltSteering()
-    {
-        float roll = headTransform.localEulerAngles.z;
-        if (roll > 180f) roll -= 360f; // Normalize to [-180,180]
-
-        float turnAmount = Mathf.Clamp(roll * leanSensitivity, -maxTurnSpeed, maxTurnSpeed);
-        xrRig.Rotate(Vector3.up, -turnAmount * Time.deltaTime);
-    }
-
 }
