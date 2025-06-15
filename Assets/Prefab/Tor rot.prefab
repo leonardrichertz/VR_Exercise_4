@@ -10,7 +10,7 @@ GameObject:
   m_Component:
   - component: {fileID: 8125039452244725035}
   - component: {fileID: 2045664751137331713}
-  - component: {fileID: 5121714230019046468}
+  - component: {fileID: 4976941531942754404}
   m_Layer: 0
   m_Name: Tor rot
   m_TagString: Untagged
@@ -56,7 +56,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.101336, y: 6.080002, z: 3.0341895}
   m_Center: {x: -0.017079115, y: 1.5338616, z: 1.5018166}
---- !u!114 &5121714230019046468
+--- !u!114 &4976941531942754404
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -65,9 +65,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 4013615002563704205}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc5a88a7e1149d4ebb667f208c44e1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 20ccf76ceb997b04c86c678453a3ef20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 0}
 --- !u!1 &5748043398684537836
 GameObject:
   m_ObjectHideFlags: 0

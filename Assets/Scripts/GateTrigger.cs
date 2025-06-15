@@ -2,9 +2,14 @@ using UnityEngine;
 
 public class GateTrigger : MonoBehaviour
 {
+    [SerializeField] private Score score;
+
+
     void OnTriggerEnter(Collider player)
     {
-        Score score = player.GetComponent<Score>();
-        score.RaiseScore();
+        if (score != null)
+        {
+            score.RaiseScore();
+        }
     }
 }

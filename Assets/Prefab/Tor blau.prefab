@@ -120,7 +120,7 @@ GameObject:
   m_Component:
   - component: {fileID: 7025462283964438357}
   - component: {fileID: 626780991015828934}
-  - component: {fileID: 8604995496919367193}
+  - component: {fileID: 6319780562457368523}
   m_Layer: 0
   m_Name: Tor blau
   m_TagString: Untagged
@@ -166,7 +166,7 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 0.07038808, y: 5.749756, z: 3.0434217}
   m_Center: {x: -0.004419446, y: 1.3914876, z: 1.4697883}
---- !u!114 &8604995496919367193
+--- !u!114 &6319780562457368523
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_CorrespondingSourceObject: {fileID: 0}
@@ -175,9 +175,10 @@ MonoBehaviour:
   m_GameObject: {fileID: 5311847210327272104}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: dcc5a88a7e1149d4ebb667f208c44e1c, type: 3}
+  m_Script: {fileID: 11500000, guid: 20ccf76ceb997b04c86c678453a3ef20, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  score: {fileID: 0}
 --- !u!1 &8689957966447033003
 GameObject:
   m_ObjectHideFlags: 0

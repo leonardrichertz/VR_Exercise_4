@@ -9,7 +9,7 @@ public class SkiLocomotion : MonoBehaviour
     public Transform rightHand;       // Right controller transform
 
     public float pushBackThreshold = 0.1f;     // Minimum backward movement on controller local Z to count as push
-    public float speedBoostMultiplier = 3f;    // How much the speed increases when pushing
+    public float speedBoostMultiplier = 2f;    // How much the speed increases when pushing
     public float frictionFactor = 0.99f; // Reduce speed by 1% per frame
 
     private Vector3 leftHandNeutralLocalPos;
@@ -74,6 +74,9 @@ public class SkiLocomotion : MonoBehaviour
                 boost += rightPush;
         }
 
-        return Mathf.Clamp(boost, 0f, 1f) * speedBoostMultiplier;
+        float normalized = Mathf.Clamp01(boost);
+        float powered = Mathf.Pow(normalized, 2f);
+
+        return powered * speedBoostMultiplier;
     }
 }

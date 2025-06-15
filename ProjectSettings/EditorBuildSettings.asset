@@ -14,6 +14,9 @@ EditorBuildSettings:
   - enabled: 1
     path: Assets/Scenes/Skipiste.unity
     guid: 9d022dd086d7a744fa6b994bf999cc21
+  - enabled: 1
+    path: Assets/Scenes/EndScene.unity
+    guid: b5deee80d4204f843b7b2e7effe0eceb
   m_configObjects:
     Unity.XR.Oculus.Settings: {fileID: 11400000, guid: bfa1182bd221b4ca89619141f66f1260, type: 2}
     Unity.XR.WindowsMR.Settings: {fileID: 11400000, guid: dc5a169419fa04987b057f65238cf3ba, type: 2}

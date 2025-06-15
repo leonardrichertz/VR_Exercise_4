@@ -131,6 +131,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: XR Origin (XR Rig)
       objectReference: {fileID: 0}
+    - target: {fileID: 1717954561962503725, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
+      propertyPath: m_TagString
+      value: Player
+      objectReference: {fileID: 0}
     - target: {fileID: 1717954561962503726, guid: f6336ac4ac8b4d34bc5072418cdc62a0, type: 3}
       propertyPath: m_RootOrder
       value: 1
@@ -262,6 +266,50 @@ CapsuleCollider:
   m_Height: 2
   m_Direction: 1
   m_Center: {x: 0, y: 1, z: 0}
+--- !u!1 &74752768
+GameObject:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  serializedVersion: 6
+  m_Component:
+  - component: {fileID: 74752769}
+  - component: {fileID: 74752770}
+  m_Layer: 0
+  m_Name: ScoreManager
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &74752769
+Transform:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74752768}
+  serializedVersion: 2
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 250, y: 98.36144, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_ConstrainProportionsScale: 0
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
+--- !u!114 &74752770
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 74752768}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 7a8ca54438824394ba0c130b40463903, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &119102033
 GameObject:
   m_ObjectHideFlags: 0
@@ -1987,6 +2035,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Tor blau
       objectReference: {fileID: 0}
+    - target: {fileID: 6319780562457368523, guid: f9633efa664a4084fbd6bd6c1527c23a, type: 3}
+      propertyPath: score
+      value: 
+      objectReference: {fileID: 74752770}
     - target: {fileID: 7025462283964438357, guid: f9633efa664a4084fbd6bd6c1527c23a, type: 3}
       propertyPath: m_LocalPosition.x
       value: 169.9
@@ -3050,6 +3102,7 @@ GameObject:
   - component: {fileID: 1196343034}
   - component: {fileID: 1196343033}
   - component: {fileID: 1196343032}
+  - component: {fileID: 1196343035}
   m_Layer: 3
   m_Name: Ziellinie
   m_TagString: Untagged
@@ -3146,6 +3199,19 @@ MeshFilter:
   m_PrefabAsset: {fileID: 0}
   m_GameObject: {fileID: 1196343030}
   m_Mesh: {fileID: 10202, guid: 0000000000000000e000000000000000, type: 0}
+--- !u!114 &1196343035
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1196343030}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0dcbf262de37f3b4886f34df53801b8d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  endSceneName: EndScene
 --- !u!1 &1218802662
 GameObject:
   m_ObjectHideFlags: 0
@@ -5495,3 +5561,4 @@ SceneRoots:
   - {fileID: 29455445}
   - {fileID: 2027252074}
   - {fileID: 2075723888}
+  - {fileID: 74752769}
