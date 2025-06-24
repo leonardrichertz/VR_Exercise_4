@@ -9,6 +9,6 @@ public class Score : MonoBehaviour
     {
         score++;
         finalScore = score;
-        Debug.Log("Score: " + score);
+        // Debug.Log("Score: " + score);
     }
 }
