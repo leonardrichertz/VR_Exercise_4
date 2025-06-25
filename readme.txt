@@ -8,7 +8,7 @@ Das Skript wertet die Relativbewegung der VR-Controller aus und übersetzt diese
 ---
 
 Designentscheidung und Interface-Erklärung
-Unser Interface basiert auf einer körperbasierten Fortbewegung durch Handbewegungen nach hinten, um die Immersion zu steigern und die Interaktion natürlicher zu gestalten.
+Unser Interface basiert auf einer körperbasierten Fortbewegung durch Handbewegungen nach hinten, um die Immersion zu steigern und die Interaktion intuitiver zu gestalten.
 
 Die Vorwärtsbewegung ist an die Blickrichtung des Headsets gekoppelt.
 Dies erlaubt dem Nutzer, die Bewegungsrichtung intuitiv durch Drehen des Kopfes zu steuern und sorgt für ein natürliches, flüssiges Fahrerlebnis.
@@ -48,6 +48,7 @@ Schwächen
 - Ermüdung: Wiederholte Armbewegungen können bei längerer Nutzung anstrengend sein.
 - Bewegungserkennung begrenzt: Sehr feine oder langsame Armbewegungen werden eventuell nicht ausreichend erkannt, was zu ungenauer Steuerung führen kann.
 - Hohe Geschwindigkeit: Starke Bewegungen erzeugen schnell hohe Geschwindigkeit, was anfangs schwer kontrollierbar sein kann.
+- Begrenztes Sichtfeld: Bei Kopfbewegungen ändert sich direkt die Fahrtrichtung, wodurch ein "neugieriges Umschauen" nicht möglich ist.
 
 ---
 
