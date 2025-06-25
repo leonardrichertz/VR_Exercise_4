@@ -1,4 +1,3 @@
-
 Readme: Erläuterung der Abgabe
 
 Diese Abgabe beinhaltet die Implementierung eines VR-Lokomotionssystems für ein Skihang-Szenario.
@@ -41,6 +40,7 @@ Stärken
 - Hohe Immersion: Die körperliche Armbewegung passt thematisch und unterstützt das Skigefühl.
 - Intuitive Steuerung: Die Blickrichtung steuert die Bewegungsrichtung – schnell verständlich, auch für Anfänger.
 - Motion-Sickness-Reduzierung: Durch die körperliche Aktivität wird die Diskrepanz zwischen visueller und physischer Wahrnehmung reduziert.
+- Die Anwendung kann sowohl in Stehen, als auch im Sitzen benutzt werden, wobei wir in unseren Testläufen eine bessere Handhabung in stehender Position festgestellt haben.
 
 ---
 
@@ -52,3 +52,8 @@ Schwächen
 ---
 
 Nutzbarkeit und Performance-Messung
+
+- Die Nutzbarkeit der Anwendung, insbesondere im Hinsicht auf das Finden geeigneter Transfer-Methoden lässt sich nur durch Testen mit verschiedenen Personengruppen verifizieren. In unseren Testläufen haben wir uns hauptsächlich damit beschäftigt das Gefühl des "Skifahren" zu imitieren.
+Ein einfacher Test zu testen, ob Benutzer die Anwendung so benutzen, wie von uns vorgesehen (im Stehen), ist es einen Benutzer die Anwendung für eine gewisse Zeit spielen zu lassen und zu beobachten, ob der Nutzer sich setzt.
+- Man könnte nach bspw. 30 Minuten in der Anwendung einen Cyber-Sickness Questionaire an die Teilnehmenden austeilen, um zu überprüfen, inwiefern unsere Anwendung Cyber-Sickness hervorruft. 
+- Eine Messung der durchfahrenen Tore, bzw. der Zeit bis zum Erreichen der Ziellinie könnte implementiert werden, um zu überprüfen, ob unsere Anwendung eine Lernkurve erlaubt und der Nutzer über Zeit besser werden kann. Ebenso einhergehend damit ist, wie einfach unsere Anwendung zu erlernen ist.
